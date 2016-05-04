@@ -1,0 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+    background: $base-background-color;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

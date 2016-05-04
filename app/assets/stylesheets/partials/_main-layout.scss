@@ -1,0 +1,16 @@
+//
+// Main Layout Styles
+//
+
+header {
+    background: $secondary-color;
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 50px;
+
+    h1 {
+        font-size: em(26px);
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+}

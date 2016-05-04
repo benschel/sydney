@@ -1,0 +1,15 @@
+<% @users.each do |user| %>
+    <a class="user-photo-container" href="<%= new_mention_path %>?user=<%= user.id %>">
+        <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
+        <span class="hidden-info">
+            <span class="user-name"><%= user.name %></span>
+        </span>
+    </a>
+    <ul>
+        <% user.mentions.each do |mention| %>
+            <li>
+                <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
+            </li>
+        <% end %>
+    </ul>
+<% end %>

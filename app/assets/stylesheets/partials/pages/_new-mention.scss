@@ -1,0 +1,17 @@
+//
+// New Mention Styles
+//
+#new-mention-container {
+    .mention-type-container {
+        position: relative;
+
+        input[type="radio"] {
+            visibility: hidden;
+            position: absolute;
+
+            &:checked + .type-icon {
+                color: red;
+            }
+        }
+    }
+}

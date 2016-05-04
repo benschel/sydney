@@ -1,0 +1,23 @@
+<div id="new-mention-container">
+    <h1>New</h1>
+
+    <%= form_for(@mention) do |f| %>
+
+        <ul class="mention-type-container">
+            <% @mention_types.each do |type| %>
+                <li>
+                    <label for="type-<%= type %>">
+                        <input type="radio" id="type-<%= type %>" name="mention[mention_type]" value="<%= type %>" />
+                        <span class="type-icon fa fa-<%= type %>"></span>
+                    </label>
+                </li>
+            <% end %>
+        </ul>
+
+        <%= f.hidden_field :user %>
+        <label>Comment</label>
+        <%= f.text_area :comment %>
+
+        <input type="submit" value="Save" />
+    <% end %>
+</div>
