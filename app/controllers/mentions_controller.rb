@@ -8,6 +8,8 @@ class MentionsController < ApplicationController
       @users_group_b = grouped_users[1]
 
       @latest_mention = Mention.order("created_at DESC").first.id
+
+      # @user_most_mentions = User.
     end
 
     def new
