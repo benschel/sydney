@@ -12,4 +12,8 @@
     height: 50px;
     text-align: center;
     padding-top: 12px;
+
+    &:hover {
+        background: $neutral-color-100;
+    }
 }

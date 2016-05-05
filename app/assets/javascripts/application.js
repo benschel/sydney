@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tipr.min
 //= require turbolinks
 //= require_tree .
