@@ -7,7 +7,24 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 user_list = [
-  ['Ben Henschel', 'ben.jpg']
+  ['Ben', 'ben.jpg'],
+  ['Jeff', 'jeff-g.jpg'],
+  ['Brian', 'brian.jpg'],
+  ['Brandon', 'brandon.jpg'],
+  ['Jeff', 'jeff-mu.jpg'],
+  ['Chris', 'chris.jpg'],
+  ['Dave', 'dave-alter.jpg'],
+  ['Johnny', 'johnny.jpg'],
+  ['Kelly', 'kelly.jpg'],
+  ['Alex', 'alex.jpg'],
+  ['Collin', 'collin.jpg'],
+  ['Dave', 'dave-p.jpg'],
+  ['Gideon', 'gideon.jpg'],
+  ['Mike', 'mike.jpg'],
+  ['Stanley', 'stanley.jpg'],
+  ['Joel', 'joel.jpg'],
+  ['Micky', 'micky.jpg'],
+  ['Tristan', 'tristan.jpg'],
 ]
 
 user_list.each do |user|

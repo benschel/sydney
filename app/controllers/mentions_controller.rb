@@ -1,6 +1,11 @@
 class MentionsController < ApplicationController
     def index
       @users = User.all
+      num_users = @users.length
+      grouped_users = @users.each_slice(num_users / 2).to_a
+
+      @users_group_a = grouped_users[0]
+      @users_group_b = grouped_users[1]
     end
 
     def new

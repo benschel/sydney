@@ -3,14 +3,82 @@
 //
 
 header {
-    background: $secondary-color;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    @include transform(translateY(-50%));
+    opacity: 0.3;
     padding: 30px 0;
     text-align: center;
-    margin-bottom: 50px;
+
+    .logo {
+        display: inline-block;
+        padding: 0 25px 25px;
+        border-bottom: 1px solid $secondary-color;
+    }
 
     h1 {
         font-size: em(26px);
         margin-top: 20px;
         margin-bottom: 0;
+        color: $secondary-color;
     }
 }
+
+#app-container {
+    width: 100%;
+    padding: 75px;
+
+
+    .users-container {
+        position: relative;
+
+        .users-group-a,
+        .users-group-b {
+            position: absolute;
+
+            .user {
+                margin-bottom: 100px;
+                position: relative;
+            }
+
+            .user-mentions-container {
+                width: 900px;
+                position: absolute;
+                top: 25px;
+                @include clearfix();
+            }
+        }
+
+        .users-group-a {
+            left: 0;
+
+            .user-mentions-container {
+                left: 110px;
+
+                li {
+                    float: left;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .users-group-b {
+            right: 0;
+            top: 100px;
+
+            .user-mentions-container {
+                right: 110px;
+
+                li {
+                    float: right;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+}
+
