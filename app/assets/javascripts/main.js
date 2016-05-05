@@ -3,15 +3,20 @@ $(document).on('page:load page:change', function() {
         'mode': 'top'
     });
 
-    var $iconsContainer = $('.user-mentions-container');
-    var $icons = $('.user-mention');
-
-    $.each($iconsContainer, function(k, v) {
+    $.each($('.user-mentions-container'), function(k, v) {
         var counter = 0;
+        var $icons = $(v).children();
 
-        setInterval(function() {
-            $(v).children().eq(counter).addClass('animate-icon');
-            counter++;
-        }, 250);
+        if ($icons.length) {
+            var interval = setInterval(function() {
+                $icons.eq(counter).addClass('animate-icon');
+
+                if (counter === $icons.length) {
+                    clearInterval(interval);
+                }
+
+                counter++;
+            }, 250);
+        }
     });
 });

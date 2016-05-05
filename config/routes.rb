@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :mentions
+  get 'mentions/new/:id' => 'mentions#new', as: :new_mention
+
+  resources :mentions, :except => [:new]
 
   root 'mentions#index'
 
