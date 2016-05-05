@@ -59,6 +59,20 @@ select[multiple] {
 
 textarea {
   resize: vertical;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  width: 600px;
+  height: 100px;
+  margin: 25px auto;
+  outline: none;
+  box-shadow: none;
+  color: $neutral-color-98;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
 }
 
 [type="search"] {

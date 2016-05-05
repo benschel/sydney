@@ -9,4 +9,14 @@ $(document).on('page:load page:change', function() {
     // var params = getQueryParams();
 
     // $userInput.val(params.user);
+
+    var randomNumber = function(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    var $icons = $('.mention-type-container li');
+
+    var randomNum = randomNumber(0, $icons.length);
+
+    $icons.eq(randomNum).find('input[type="radio"]').attr('checked', 'checked');
 });

@@ -15,9 +15,15 @@
         </ul>
 
         <%= f.hidden_field :user, value: @mention_user %>
-        <label>Comment</label>
-        <%= f.text_area :comment %>
 
-        <input type="submit" value="Save" />
+        <ul class="new-mentions-form">
+            <li>
+                <label>Comment</label>
+                <%= f.text_area :comment, maxlength: 140 %>
+            </li>
+            <li>
+                <input type="submit" value="Save" />
+            </li>
+        </ul>
     <% end %>
 </div>
