@@ -1,7 +1,8 @@
 //
 // Animations
 //
-.animate-icon {
+.animate-icon,
+.latest-mention {
     @include animation(show 0.6s ease-in-out forwards);
 
     &:before {
@@ -9,6 +10,11 @@
     }
 }
 
+.latest-mention {
+    &:before {
+        @include animation(pop 1s ease-in-out forwards infinite);
+    }
+}
 
 @include keyframes(show) {
     30% {
