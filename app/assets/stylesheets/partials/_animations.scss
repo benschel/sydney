@@ -1,6 +1,14 @@
 //
 // Animations
 //
+$num-stars: 3;
+$star-delay: (
+    1 : 0.5,
+    2 : 0,
+    3 : 0.9,
+);
+
+
 .animate-icon {
     @include animation(show 0.6s ease-in-out forwards);
 
@@ -12,6 +20,15 @@
 .latest-mention {
     &:before {
         @include animation(pop 1s ease-in-out forwards infinite);
+    }
+}
+
+
+@for $j from 1 through $num-stars {
+    $delay: map-get($star-delay, $j) * 1s;
+
+    .animate-star.star-icon:nth-of-type(#{$j}) {
+        @include animation(star-#{$j} 1.4s ease-in-out $delay infinite);
     }
 }
 
@@ -47,3 +64,23 @@
         opacity: 0;
     }
 }
+
+@for $i from 1 through $num-stars {
+    @include keyframes(star-#{$i}) {
+        20% {
+            @include transform(scale(1.5, 1.5));
+        }
+        25% {
+            opacity: 1;
+            @include transform(scale(1, 1));
+        }
+        100% {
+            opacity: 0;
+            @include transform(translateY(-50px));
+        }
+    }
+}
+
+
+
+

@@ -3,6 +3,14 @@ $(document).on('page:load page:change', function() {
         'mode': 'top'
     });
 
+    var triggerWinner = function(el) {
+        var $user = $(el).parent('.user');
+
+        if ($user.find('.stars').length) {
+            $('.star-icon').addClass('animate-star')
+        }
+    };
+
     $.each($('.user-mentions-container'), function(k, v) {
         var counter = 0;
         var $icons = $(v).children();
@@ -13,6 +21,7 @@ $(document).on('page:load page:change', function() {
 
                 if (counter === $icons.length) {
                     clearInterval(interval);
+                    triggerWinner(v);
                 }
 
                 counter++;
