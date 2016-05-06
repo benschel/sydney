@@ -23,7 +23,13 @@
 
     <ul class="users-group-b">
         <% @users_group_b.each do |user| %>
-            <li class="user">
+            <li class="user">  
+                <a class="user-photo-container" href="<%= new_mention_path(user.id) %>">
+                    <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
+                    <span class="hidden-info">
+                        <span class="user-name"><%= user.name %></span>
+                    </span>
+                </a>
                 <ul class="user-mentions-container">
                     <% user.mentions.each do |mention| %>
                         <li class="user-mention <%= mention.id == @latest_mention ? 'latest-mention' : '' %>">
@@ -33,12 +39,6 @@
                         </li>
                     <% end %>
                 </ul>
-                <a class="user-photo-container" href="<%= new_mention_path(user.id) %>">
-                    <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
-                    <span class="hidden-info">
-                        <span class="user-name"><%= user.name %></span>
-                    </span>
-                </a>
             </li>
         <% end %>
     </ul>
