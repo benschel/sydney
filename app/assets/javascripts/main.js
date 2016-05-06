@@ -28,4 +28,16 @@ $(document).on('page:load page:change', function() {
             }, 250);
         }
     });
+
+    setInterval(function() {
+        var $firstUser = $('.current-user-group .user:first-child');
+        $firstUser.animate({'opacity': 0}).slideUp(500, function() {
+            var $parentContainer = $(this).parent();
+            $('.users-group:not(.current-user-group)').addClass('current-user-group');
+            $parentContainer.removeClass('current-user-group');
+
+            var $removedUser = $(this).detach();
+            $removedUser.show().css({'opacity': 1}).appendTo($parentContainer);
+        });
+    }, 60000);
 });

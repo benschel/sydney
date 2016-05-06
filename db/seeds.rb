@@ -28,6 +28,7 @@ user_list = [
   ['Joel', 'joel.jpg'],
   ['Micky', 'micky.jpg'],
   ['Tristan', 'tristan.jpg'],
+  ['Jon', 'jon.jpg'],
 ]
 
 user_list.each do |user|
