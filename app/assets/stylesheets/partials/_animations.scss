@@ -28,7 +28,7 @@ $star-delay: (
     $delay: map-get($star-delay, $j) * 1s;
 
     .animate-star.star-icon:nth-of-type(#{$j}) {
-        @include animation(star-#{$j} 1.4s ease-in-out $delay infinite);
+        @include animation(stars 1.4s ease-in-out $delay infinite);
     }
 }
 
@@ -65,19 +65,17 @@ $star-delay: (
     }
 }
 
-@for $i from 1 through $num-stars {
-    @include keyframes(star-#{$i}) {
-        20% {
-            @include transform(scale(1.5, 1.5));
-        }
-        25% {
-            opacity: 1;
-            @include transform(scale(1, 1));
-        }
-        100% {
-            opacity: 0;
-            @include transform(translateY(-50px));
-        }
+@include keyframes(stars) {
+    20% {
+        @include transform(scale(1.5, 1.5));
+    }
+    25% {
+        opacity: 1;
+        @include transform(scale(1, 1));
+    }
+    100% {
+        opacity: 0;
+        @include transform(translateY(-50px));
     }
 }
 

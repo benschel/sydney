@@ -17,7 +17,7 @@ user_list = [
   ['Johnny', 'johnny.jpg'],
   ['Kelly', 'kelly.jpg'],
   ['Alex', 'alex.jpg'],
-  ['Collin', 'collin.jpg'],
+  ['Colin', 'colin.jpg'],
   ['Jeronimo', 'jeronimo.jpg'],
   ['Andy', 'andy.jpg'],
   ['Jamie', 'jamie.jpg'],
