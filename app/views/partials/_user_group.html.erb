@@ -1,0 +1,29 @@
+<% group = group == "group_a" ? @users_group_a : @users_group_b %>
+
+<% group.each do |user|  %>
+    <li class="user">
+        <% if user.id == @user_most_mentions %>
+            <div class="stars">
+                <% 3.times do %>
+                    <span class="star-icon fa fa-star"></span>
+                <% end %>
+            </div>
+        <% end %>
+        
+        <a class="user-photo-container" href="<%= new_mention_path(user.id) %>">
+            <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
+            <span class="hidden-info">
+                <span class="user-name"><%= user.name %></span>
+            </span>
+        </a>
+        <ul class="user-mentions-container">
+            <% user.mentions.each do |mention| %>
+                <li class="user-mention <%= mention.id == @latest_mention ? 'latest-mention' : '' %>">
+                    <div class="tip" data-tip="<%= mention.comment %>">
+                        <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    </li>
+<% end %>
