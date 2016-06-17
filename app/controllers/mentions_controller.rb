@@ -1,6 +1,6 @@
 class MentionsController < ApplicationController
     def index
-      users = User.all
+      users = User.order('id ASC').all
       num_users = users.length
       grouped_users = users.each_slice((num_users / 2.0).ceil).to_a
 
@@ -9,7 +9,7 @@ class MentionsController < ApplicationController
 
       if Mention.all.present?
         @latest_mention = Mention.order('created_at DESC').first.id
-        @user_most_mentions = User.order('mentions_count DESC, updated_at DESC').first.id
+        @user_most_mentions = User.where.not(mentions_count: nil).order('mentions_count DESC, updated_at DESC').first.id
       end
     end
 
