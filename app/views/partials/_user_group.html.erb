@@ -1,6 +1,6 @@
 <% group = group == "group_a" ? @users_group_a : @users_group_b %>
 
-<% group.each do |user|  %>
+<% group.each do |user| %>
     <li class="user">
         <% if user.id == @user_most_mentions %>
             <div class="stars">
