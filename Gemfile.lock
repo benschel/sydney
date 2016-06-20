@@ -87,8 +87,6 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
     rack (1.6.4)
-    rack-attack (4.4.1)
-      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -168,7 +166,6 @@ DEPENDENCIES
   jquery-rails
   neat
   pg (~> 0.18.4)
-  rack-attack
   rails (= 4.2.6)
   rails_12factor
   sass-rails (~> 5.0)
