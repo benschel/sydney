@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   get 'mentions/new/:id' => 'mentions#new', as: :new_mention
+  get 'mentions/display' => 'mentions#display'
 
-  resources :mentions, :except => [:new]
-
+  resources :mentions, :except => [:new, :show]
+  
   root 'mentions#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160505223047) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "mentions", force: :cascade do |t|
     t.integer  "user_id",      null: false
     t.string   "mention_type", null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160505223047) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "mentions", ["user_id"], name: "index_mentions_on_user_id"
+  add_index "mentions", ["user_id"], name: "index_mentions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -31,4 +34,5 @@ ActiveRecord::Schema.define(version: 20160505223047) do
     t.integer  "mentions_count"
   end
 
+  add_foreign_key "mentions", "users"
 end
