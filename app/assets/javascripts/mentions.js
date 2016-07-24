@@ -1,22 +1,29 @@
-$(document).on('page:load page:change', function() {
-    // var $userInput = $('#mention_user');
+// New Mention js
+var NewMentionApp = (function() {
+    var app = {
+        init: function() {
+            this.$icons = $('.mention-type-container li');
+            this.numIcons = this.$icons.length;
 
-    // var getQueryParams = function(str) {
-    //     var str = str || document.location.search;
-    //     return (!str && {}) || str.replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = decodeURIComponent(n[1]),this}.bind({}))[0];
-    // };
+            this.setRandomIcon();
+        },
 
-    // var params = getQueryParams();
+        setRandomIcon: function() {
+            var randomNum = this._randomNumber(0, this.numIcons);
 
-    // $userInput.val(params.user);
+            this.$icons.eq(randomNum).find('input[type="radio"]').attr('checked', 'checked');
+        },
 
-    var randomNumber = function(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        _randomNumber: function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
     };
 
-    var $icons = $('.mention-type-container li');
+    return app;
+})();
 
-    var randomNum = randomNumber(0, $icons.length);
-
-    $icons.eq(randomNum).find('input[type="radio"]').attr('checked', 'checked');
+$(document).on('page:load page:change', function() {
+    if ($('#new-mention-container').length) {
+        NewMentionApp.init();
+    }
 });
