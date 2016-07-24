@@ -17,6 +17,7 @@
         display: inline-block;
         position: absolute;
         opacity: 0;
+        pointer-events: none;
     }
 
     .user-photo-container {
@@ -30,9 +31,18 @@
 
     .user-mentions-container {
         position: absolute;
+        bottom: -75px;
+        left: -50%;
+        width: $user-width * 2;
+        text-align: center;
 
         .user-mention {
             @include user-mention();
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
         }
     }
 }

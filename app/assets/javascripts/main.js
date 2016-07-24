@@ -11,7 +11,7 @@ $(document).on('page:load page:change', function() {
         }
     };
 
-    $.each($('.user-mentions-container'), function(k, v) {
+    $.each($('#mentions-container .user-mentions-container'), function(k, v) {
         var counter = 0;
         var $icons = $(v).children();
 

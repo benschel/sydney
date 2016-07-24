@@ -10,12 +10,10 @@
                     </div>
                 <% end %>
 
-                <a class="user-photo-container" href="<%= new_mention_path(user.id) %>">
+                <div class="user-photo-container">
                     <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
-                    <span class="hidden-info">
-                        <span class="user-name"><%= user.name %></span>
-                    </span>
-                </a>
+                </div>
+                
                 <ul class="user-mentions-container">
                     <% user.mentions.each do |mention| %>
                         <li class="user-mention <%= mention.id == @latest_mention ? 'latest_mention' : '' %>">
