@@ -1,3 +1,5 @@
+$all-buttons: append($all-buttons, '.button-primary-small');
+
 #{$all-buttons} {
   appearance: none;
   background-color: $action-color;
@@ -32,4 +34,8 @@
       background-color: $action-color;
     }
   }
+}
+
+.button-primary-small {
+  font-size: 12px;
 }

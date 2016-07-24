@@ -31,6 +31,13 @@ header {
     }
 }
 
+nav {
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    padding: 10px 15px 0 0;
+}
+
 #app-container {
     width: 100%;
     padding: 75px;

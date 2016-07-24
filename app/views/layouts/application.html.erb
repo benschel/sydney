@@ -12,6 +12,14 @@
             <h1>Mentions</h1>
         </header>
 
+        <nav>
+            <% if current_page?(mentions_path) or current_page?(root_path) %>
+                <%= link_to 'Display Mode', mentions_display_path, class: 'button-primary-small', data: { no_turbolink: true } %>
+            <% else %>
+                <%= link_to 'Mentions Mode', mentions_path, class: 'button-primary-small', data: { no_turbolink: true } %>
+            <% end %>
+        </nav>
+
         <div id="app-container">
             <%= yield %>
         </div>
