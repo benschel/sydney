@@ -13,27 +13,21 @@ class MentionsController < ApplicationController
       end
     end
 
-    def display
-      @users = User.order('id ASC').all
-
-      if Mention.all.present?
-        @latest_mention = Mention.order('created_at DESC').first.id
-        @user_most_mentions = User.where.not(mentions_count: nil).order('mentions_count DESC, updated_at DESC').first.id
-      end
+    def show
+      @user = User.find_by(id: params[:id])
     end
 
     def new
       @mention = Mention.new
       @mention_types = YAML.load_file(Rails.root.join('config', 'mention_types_config.yml'))
-      @mention_user = new_mention_params[:id]
-      @mention_user_name = User.find_by(id: @mention_user).name
+      @mention_user = User.find_by(id: params[:id])
     end
 
     def create
       @mention = Mention.create do |m|
-        m.user = User.find_by(id: mention_params[:user].to_i)
-        m.mention_type = mention_params[:mention_type]
-        m.comment = mention_params[:comment]
+        m.user = User.find_by(id: create_mention_params[:user].to_i)
+        m.mention_type = create_mention_params[:mention_type]
+        m.comment = create_mention_params[:comment]
       end
 
       if @mention.save
@@ -43,12 +37,8 @@ class MentionsController < ApplicationController
     end
 
     private
-    def mention_params
+    def create_mention_params
       params.require(:mention).permit(:user, :mention_type, :comment)
-    end
-
-    def new_mention_params
-      params.permit(:id)
     end
 end
 

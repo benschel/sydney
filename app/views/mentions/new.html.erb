@@ -1,5 +1,5 @@
 <div id="new-mention-container">
-    <h1>Give <%= @mention_user_name %> a mention</h1>
+    <h1>Give <%= @mention_user.name %> a mention</h1>
 
     <%= form_for(@mention) do |f| %>
 
@@ -14,7 +14,7 @@
             <% end %>
         </ul>
 
-        <%= f.hidden_field :user, value: @mention_user %>
+        <%= f.hidden_field :user, value: @mention_user.id %>
 
         <ul class="new-mentions-form">
             <li>

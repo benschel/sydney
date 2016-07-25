@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   get 'mentions/new/:id' => 'mentions#new', as: :new_mention
-  get 'mentions/display' => 'mentions#display'
 
-  resources :mentions, :except => [:new, :show]
+  resource :display, :only => [:show]
+  resources :mentions, :only => [:index, :show, :create]
   
   root 'mentions#index'
 
