@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'mentions/new/:id' => 'mentions#new', as: :new_mention
+  get 'pages/new-features' => 'high_voltage/pages#show', id: 'new_features'
 
   resource :display, :only => [:show]
   resources :mentions, :only => [:index, :create]
