@@ -8,7 +8,7 @@ var DisplayApp = (function() {
             this.numUsers = $('.user').length;
             this.$currentUser = null;
 
-            this.slideShowDuration = 300000;
+            this.slideShowDuration = 60000;
             this.slideShowActionDelay = this.slideShowDuration - 1000;
 
             this.userSlideShow();
