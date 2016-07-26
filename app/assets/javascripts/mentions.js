@@ -1,22 +1,73 @@
-$(document).on('page:load page:change', function() {
-    // var $userInput = $('#mention_user');
+// Mentions js
+var MentionsApp = (function() {
+    var app = {
+        init: function() {
+            var self = this;
 
-    // var getQueryParams = function(str) {
-    //     var str = str || document.location.search;
-    //     return (!str && {}) || str.replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = decodeURIComponent(n[1]),this}.bind({}))[0];
-    // };
+            this.initTipr();
+            this.showMentions();
 
-    // var params = getQueryParams();
+            setInterval(function() {
+                self.slideThroughUsers();
+            }, 60000);
+        },
 
-    // $userInput.val(params.user);
+        initTipr: function() {
+            $('.tip').tipr({
+                'mode': 'top'
+            });
+        },
 
-    var randomNumber = function(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        showMentions: function() {
+            var self = this;
+
+            $.each($('.user-mentions-container'), function(k, v) {
+                var counter = 0;
+                var $icons = $(v).children();
+
+                if ($icons.length) {
+                    var iconInterval = setInterval(function() {
+                        $icons.eq(counter).addClass('animate-icon');
+
+                        if (counter === $icons.length) {
+                            clearInterval(iconInterval);
+                            self._triggerWinner(v);
+                        }
+
+                        counter++;
+                    }, 250);
+                }
+            });
+        },
+
+        slideThroughUsers: function() {
+            var $firstUser = $('.current-user-group .user:first-child');
+
+            $firstUser.animate({'opacity': 0}).slideUp(500, function() {
+                var $parentContainer = $(this).parent();
+
+                $('.users-group:not(.current-user-group').addClass('current-user-group');
+                $parentContainer.removeClass('current-user-group');
+
+                var $removedUser = $(this).detach();
+                $removedUser.show().css({'opacity': 1}).appendTo($parentContainer);
+            });
+        },
+
+        _triggerWinner: function(el) {
+            var $user = $(el).parent('.user');
+
+            if ($user.find('.stars').length) {
+                $('.star-icon').addClass('animate-star');
+            }
+        }
     };
 
-    var $icons = $('.mention-type-container li');
+    return app;
+})();
 
-    var randomNum = randomNumber(0, $icons.length);
-
-    $icons.eq(randomNum).find('input[type="radio"]').attr('checked', 'checked');
+$(document).on('page:load page:change', function() {
+    if ($('#mentions-container').length) {
+        MentionsApp.init();
+    }
 });

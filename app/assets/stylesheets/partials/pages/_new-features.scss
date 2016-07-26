@@ -1,0 +1,30 @@
+// New Features Styles
+#new-features-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px;
+    background: rgba(33, 72, 96, 0.75);
+    border-radius: $base-border-radius;
+
+    .features-header {
+        font-size: em(28px);
+    }
+
+    .version-number {
+        font-size: em(18px);
+    }
+
+    .feature-list {
+        list-style-type: disc;
+
+        strong {
+            font-weight: bold;
+            display: block;
+        }
+
+        li {
+            margin-left: 25px;
+            margin-bottom: 25px;
+        }
+    }
+}

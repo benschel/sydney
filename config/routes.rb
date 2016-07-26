@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   get 'mentions/new/:id' => 'mentions#new', as: :new_mention
+  get 'pages/new-features' => 'high_voltage/pages#show', id: 'new_features'
 
-  resources :mentions, :except => [:new]
-
+  resource :display, :only => [:show]
+  resources :mentions, :only => [:index, :create]
+  resources :users, :only => [:show]
+  
   root 'mentions#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

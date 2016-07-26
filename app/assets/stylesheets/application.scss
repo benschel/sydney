@@ -7,12 +7,18 @@
 @import 'font-awesome';
 
 @import 'partials/main-layout';
+@import 'partials/stars';
 @import 'partials/tooltip';
 @import 'partials/type-icon';
 @import 'partials/user-photos';
+@import 'partials/user-mention';
 @import 'partials/animations';
 
 //
 // Pages
 //
+@import 'partials/pages/mentions';
 @import 'partials/pages/new-mention';
+@import 'partials/pages/display';
+@import 'partials/pages/user-profile';
+@import 'partials/pages/new-features';

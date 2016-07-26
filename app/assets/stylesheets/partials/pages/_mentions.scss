@@ -1,0 +1,59 @@
+// Mentions Styles
+#mentions-container {
+    .users-container {
+        position: relative;
+    }
+
+    .users-group-a,
+    .users-group-b {
+        position: absolute;
+
+        .user {
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .user-mentions-container {
+            width: 900px;
+            position: absolute;
+            top: 25px;
+            @include clearfix();
+
+            .user-mention {
+                @include user-mention();
+            }
+        }
+    }
+
+    .users-group-a {
+        left: 0;
+
+        .user-mentions-container {
+            left: 110px;
+
+            li {
+                float: left;
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .users-group-b {
+        top: 100px;
+        right: 0;
+
+        .user-mentions-container {
+            right: 110px;
+
+            li {
+                float: right;
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .user-photo-container {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,11 +1,13 @@
-<div class="users-container">
-    <ul class="users-group users-group-a current-user-group">
-        <%= render partial: "partials/user_group", locals: {group: "group_a"} %>
-    </ul>
+<div id="mentions-container">
+    <div class="users-container">
+        <ul class="users-group users-group-a current-user-group">
+            <%= render partial: "partials/user_group", locals: {group: "group_a"} %>
+        </ul>
 
-    <ul class="users-group users-group-b">
-        <%= render partial: "partials/user_group", locals: {group: "group_b"} %>
-    </ul>
+        <ul class="users-group users-group-b">
+            <%= render partial: "partials/user_group", locals: {group: "group_b"} %>
+        </ul>
+    </div>
 </div>
 
 

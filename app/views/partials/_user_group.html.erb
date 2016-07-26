@@ -2,7 +2,7 @@
 
 <% group.each do |user| %>
     <li class="user">
-        <% if user.id == @user_most_mentions %>
+        <% if user.id == user.get_user_most_mentions %>
             <div class="stars">
                 <% 3.times do %>
                     <span class="star-icon fa fa-star"></span>
@@ -10,23 +10,16 @@
             </div>
         <% end %>
 
-        <a class="user-photo-container" href="<%= new_mention_path(user.id) %>">
+        <a class="user-photo-container" href="<%= user_path(user.id) %>">
             <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
             <span class="hidden-info">
                 <span class="user-name"><%= user.name %></span>
             </span>
         </a>
+
         <ul class="user-mentions-container">
-            <% user.mentions.each do |mention| %>
-                <li class="user-mention <%= mention.id == @latest_mention ? 'latest-mention' : '' %>">
-                    <% if not mention.comment.blank? %>
-                        <div class="tip" data-tip="<%= mention.comment %>">
-                            <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
-                        </div>
-                    <% else %>
-                        <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
-                    <% end %>
-                </li>
+            <% user.get_filtered_mentions.reverse_each do |mention| %>
+                <%= render partial: "partials/user_mentions", locals: {mention: mention} %>
             <% end %>
         </ul>
     </li>

@@ -1,0 +1,25 @@
+<div id="display-container">
+    <ul class="users-container slide-show">
+        <% @users.each do |user| %>
+            <li class="user">
+                <% if user.id == user.get_user_most_mentions %>
+                    <div class="stars">
+                        <% 3.times do %>
+                            <span class="star-icon fa fa-star"></span>
+                        <% end %>
+                    </div>
+                <% end %>
+
+                <div class="user-photo-container">
+                    <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
+                </div>
+
+                <ul class="user-mentions-container">
+                    <% user.get_filtered_mentions.reverse_each do |mention| %>
+                        <%= render partial: "partials/user_mentions", locals: {mention: mention} %>
+                    <% end %>
+                </ul>
+            </li>
+        <% end %>
+    </ul>
+</div>

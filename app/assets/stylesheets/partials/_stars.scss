@@ -1,0 +1,75 @@
+// Stars
+.stars {
+    position: absolute;
+    color: $star-color;
+
+    .star-icon {
+        position: absolute;
+        opacity: 0;
+        @include transform(scale(0, 0));
+    }
+}
+
+#mentions-container {
+    .stars {
+        top: -20px;
+
+        .star-icon {
+            &:nth-of-type(1) {
+                left: 20px;
+            }
+
+            &:nth-of-type(2) {
+                left: 40px;
+            }
+
+            &:nth-of-type(3) {
+                left: 60px;
+            }
+        }
+    }
+}
+
+#display-container {
+    .stars {
+        font-size: 26px;
+        top: -30px;
+        left: 150px;
+
+        .star-icon {
+            &:nth-of-type(1) {
+                left: 0;
+            }
+
+            &:nth-of-type(2) {
+                left: 30px;
+            }
+
+            &:nth-of-type(3) {
+                left: 60px;
+            }
+        }
+    }
+}
+
+#user-profile-container {
+    .stars {
+        font-size: 24px;
+        top: -5px;
+        left: 190px;
+
+        .star-icon {
+            &:nth-of-type(1) {
+                left: 0;
+            }
+
+            &:nth-of-type(2) {
+                left: 30px;
+            }
+
+            &:nth-of-type(3) {
+                left: 60px;
+            }
+        }
+    }
+}

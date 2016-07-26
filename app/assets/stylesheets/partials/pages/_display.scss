@@ -1,0 +1,55 @@
+// Display Styles
+#display-container {
+    $user-height: 400px;
+    $user-width: 400px;
+
+    overflow-x: hidden;
+
+    .users-container {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        margin-top: ($user-height / 2) * -1;
+        margin-left: ($user-width / 2) * -1;
+    }
+
+    .user {
+        display: inline-block;
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .user-photo-container {
+        height: $user-height;
+        width: $user-width;
+
+        .user-photo {
+            width: 100%;
+        }
+    }
+
+    .user-mentions-container {
+        position: absolute;
+        bottom: -95px;
+        left: -75%;
+        width: $user-width * 2.5;
+        text-align: center;
+
+        .user-mention {
+            @include user-mention(65px, 65px);
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+             .type-icon {
+                width: 65px;
+                height: 65px;
+                font-size: em(28px);
+                padding-top: 17px;
+            }
+        }
+    }
+}
