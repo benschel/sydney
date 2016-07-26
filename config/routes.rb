@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'mentions/new/:id' => 'mentions#new', as: :new_mention
 
   resource :display, :only => [:show]
-  resources :mentions, :only => [:index, :show, :create]
+  resources :mentions, :only => [:index, :create]
+  resources :users, :only => [:show]
   
   root 'mentions#index'
 

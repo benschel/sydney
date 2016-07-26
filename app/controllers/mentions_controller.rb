@@ -9,12 +9,7 @@ class MentionsController < ApplicationController
 
       if Mention.all.present?
         @latest_mention = Mention.order('created_at DESC').first.id
-        @user_most_mentions = User.where.not(mentions_count: nil).order('mentions_count DESC, updated_at DESC').first.id
       end
-    end
-
-    def show
-      @user = User.find_by(id: params[:id])
     end
 
     def new
@@ -33,7 +28,6 @@ class MentionsController < ApplicationController
       if @mention.save
         redirect_to :root
       end
-
     end
 
     private

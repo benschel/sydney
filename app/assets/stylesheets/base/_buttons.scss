@@ -1,4 +1,4 @@
-$all-buttons: append($all-buttons, '.button-primary-small');
+$all-buttons: append($all-buttons, ('.button-primary', '.button-primary-small'));
 
 #{$all-buttons} {
   appearance: none;

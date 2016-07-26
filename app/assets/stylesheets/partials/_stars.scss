@@ -51,3 +51,25 @@
         }
     }
 }
+
+#user-profile-container {
+    .stars {
+        font-size: 24px;
+        top: -5px;
+        left: 190px;
+
+        .star-icon {
+            &:nth-of-type(1) {
+                left: 0;
+            }
+
+            &:nth-of-type(2) {
+                left: 30px;
+            }
+
+            &:nth-of-type(3) {
+                left: 60px;
+            }
+        }
+    }
+}
