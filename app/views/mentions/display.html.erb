@@ -13,20 +13,7 @@
                 <div class="user-photo-container">
                     <img class="user-photo" src="<%= user_photo_path(user.photo_url) %>" />
                 </div>
-                
-                <ul class="user-mentions-container">
-                    <% user.mentions.each do |mention| %>
-                        <li class="user-mention <%= mention.id == @latest_mention ? 'latest_mention' : '' %>">
-                            <% if not mention.comment.blank? %>
-                                <div class="tip" data-tip="<%= mention.comment %>">
-                                    <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
-                                </div>
-                            <% else %>
-                                <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
-                            <% end %>
-                        </li>
-                    <% end %>
-                </ul>
+                <%= render partial: "partials/user_mentions", locals: {user: user} %>
             </li>
         <% end %>
     </ul>

@@ -1,0 +1,13 @@
+<ul class="user-mentions-container">
+    <% user.get_filtered_mentions.reverse_each do |mention| %>
+        <li class="user-mention <%= mention.id == @latest_mention ? 'latest-mention' : '' %>">
+            <% if not mention.comment.blank? %>
+                <div class="tip" data-tip="<%= mention.comment %>">
+                    <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
+                </div>
+            <% else %>
+                <span class="type-icon fa fa-<%= mention.mention_type %>"></span>
+            <% end %>
+        </li>
+    <% end %>
+</ul>
