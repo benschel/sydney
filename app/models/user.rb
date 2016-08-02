@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   end
 
   def get_user_most_mentions
-    return User.where.not(mentions_count: nil).order('mentions_count DESC, updated_at DESC').first.id
+    return User.where.not(mentions_count: nil).order('mentions_count DESC, updated_at DESC').first.id if Mention.all.present?
   end
 end
